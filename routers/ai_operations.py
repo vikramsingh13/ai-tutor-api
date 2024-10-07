@@ -4,6 +4,8 @@ ai_operations.py contains routes related to all the AI operations including cour
 
 # Import the APIRouter from fastapi.
 from fastapi import APIRouter
+# Import openai client module as openai_client
+from ..ai_logistics.openai import client as openai_client
 
 # Instantiate the APIRouter.
 # Usage of APIRouter and it's syntax is similar in structure to the FastAPI instance.
@@ -16,9 +18,14 @@ router = APIRouter(
 )
 
 
-@router.get("/course-generation")
-def generateCourseFromDescription():
+@router.get("/course-generation/{prompt}")
+def generateCourseFromDescription(prompt: str):
   """
   generateCourseFromDescription returns a JSON containing content for the course modules and submodules. 
   """
-  return {}
+  # Get the course content from our openai_client module.
+  # The function returns a JSON.
+  course_content = openai_client.get_chat_response_with_prompt(prompt)
+
+  # Return the JSON response.
+  return course_content
