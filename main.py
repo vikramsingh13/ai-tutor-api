@@ -1,7 +1,7 @@
 # Import the FastAPI class.
 from fastapi import FastAPI
 # Import the routes from routers subpackage.
-from .routers import ai_operations
+from routers import ai_operations
 
 # Create a FastAPI instance.
 app = FastAPI()

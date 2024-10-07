@@ -5,7 +5,7 @@ ai_operations.py contains routes related to all the AI operations including cour
 # Import the APIRouter from fastapi.
 from fastapi import APIRouter
 # Import openai client module as openai_client
-from ..ai_logistics.openai import client as openai_client
+from ai_logistics.openai import client as openai_client
 
 # Instantiate the APIRouter.
 # Usage of APIRouter and it's syntax is similar in structure to the FastAPI instance.
